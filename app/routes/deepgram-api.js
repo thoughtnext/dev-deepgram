@@ -19,7 +19,7 @@ exports.search = function(req, res) {
 
   request(options, function(error, response, body) {
     if (error) {
-      res.status(200).send({ error: error })
+      res.status.send({ error: error })
       deferred.reject(error);
     } else {
       var asset_ids = []

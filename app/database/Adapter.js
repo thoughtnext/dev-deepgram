@@ -38,7 +38,10 @@ Adapter.prototype.GetVideoUrlByAssetId = function(asset_ids) {
           console.log(err)
           deferred.reject(err);
         } else {
-          console.log(results[0]['video_url'])
+          var arr = []
+          for(var i =0; i<results.length; i++){
+            arr.push(results[i].video_url)
+          }
           deferred.resolve(results);
         }
       });
