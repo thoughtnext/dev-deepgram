@@ -42,7 +42,7 @@ Adapter.prototype.GetVideoUrlByAssetId = function(asset_ids) {
           for(var i =0; i<results.length; i++){
             arr.push(results[i].video_url)
           }
-          deferred.resolve(results);
+          deferred.resolve(arr);
         }
       });
     }
