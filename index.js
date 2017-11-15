@@ -1,10 +1,11 @@
+
 var express = require('express');
 var bodyParser = require('body-parser');
 // var request = require('request')
 var app = express();
 var routes = require('./app/routes/index')
 
-
+require('dotenv').config()
 
 var port = process.env.PORT || 1337;
 

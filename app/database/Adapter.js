@@ -2,7 +2,6 @@
 var mysql = require("mysql");
 var Q = require("q");
 var moment = require('moment');
-// const twilioClient = require('twilio')('AC310036f39b6beced1842554c59f6ec53', '7ddeee8b7568b865cefa97b8ca5957bc');
 
 var options = {
   "host": process.env.MYSQL_HOST,
@@ -25,7 +24,8 @@ function Adapter() {
 //get bot user on userid
 Adapter.prototype.GetVideoUrlByAssetId = function(asset_ids) {
 
-  const query = "SELECT video_url FROM soundbites WHERE asset_id IN (" + this.db.escape(asset_ids) + ")";
+  const query = "SELECT * FROM soundbites WHERE asset_id IN (" + this.db.escape(asset_ids) + ")";
+  console.log(query)
   var deferred = Q.defer();
   this.db.getConnection(function(err, connection) {
     if (err) {
@@ -38,11 +38,7 @@ Adapter.prototype.GetVideoUrlByAssetId = function(asset_ids) {
           console.log(err)
           deferred.reject(err);
         } else {
-          var arr = []
-          for(var i =0; i<results.length; i++){
-            arr.push(results[i].video_url)
-          }
-          deferred.resolve(arr);
+          deferred.resolve(results);
         }
       });
     }
