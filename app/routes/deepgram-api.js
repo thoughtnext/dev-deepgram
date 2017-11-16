@@ -30,7 +30,7 @@ exports.search = function(req, res) {
         for (var i = 0; i < body.results.length; i++) {
           var tempHits = []
           for (var j = 0; j < body.results[i].hits.length; j++) {
-            if (body.results[i].hits[j].quality > 0.4) {
+            if (body.results[i].hits[j].quality > 0.7) {
               tempHits.push(body.results[i].hits[j])
             }
           }
