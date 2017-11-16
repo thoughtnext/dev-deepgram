@@ -34,11 +34,14 @@ exports.search = function(req, res) {
               tempHits.push(body.results[i].hits[j])
             }
           }
-          assets.push({
+          if(tempHits.length>0){
+                      assets.push({
             asset_id: body.results[i].asset_id,
             hits: tempHits
           })
           tempAssets.push(body.results[i].asset_id)
+          }
+
         }
 
         if (tempAssets.length > 0) {
